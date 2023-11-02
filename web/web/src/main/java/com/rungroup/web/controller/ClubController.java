@@ -3,8 +3,11 @@ package com.rungroup.web.controller;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 import com.rungroup.web.dto.ClubDto;
+import com.rungroup.web.models.Club;
 
 import com.rungroup.web.services.ClubService;
 
@@ -21,6 +24,20 @@ public class ClubController {
         List<ClubDto> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "clubs-list";
+    }
+
+    @GetMapping("/clubs/new")
+    public String createClubFrom(Model model) {
+        Club club = new Club();
+        model.addAttribute("club", club);
+        return "clubs-create";
+
+    }
+
+    @PostMapping("/clubs/new")
+    public String saveClub(@ModelAttribute("club") Club club) {
+        clubService.saveClub(club);
+        return "redirect:/clubs";
     }
 
 }
