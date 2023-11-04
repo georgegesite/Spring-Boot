@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
-import com.rungroup.web.dto.ClubDto;
 import com.rungroup.web.models.Club;
 
 import com.rungroup.web.services.ClubService;
@@ -21,7 +20,7 @@ public class ClubController {
 
     @GetMapping("/clubs")
     public String listClubs(Model model) {
-        List<ClubDto> clubs = clubService.findAllClubs();
+        List<Club> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "clubs-list";
     }
