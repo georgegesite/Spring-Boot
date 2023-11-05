@@ -25,6 +25,7 @@ layout:decorate="~{layout}" >
                                 <img class="img-fluid rounded-3 mb-3" th:src="${club.photoUrl}" alt="..." />
                                 <a th:text="${club.title}" class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!"></a>                                
                             </div>
+                                <a class="btn btn-primary" th:href="@{/clubs/{id}(id=${club.id})}">Details</a>
                             	<a class="btn btn-primary" th:href="@{/clubs/{id}/edit(id=${club.id})}">Edit</a>
                                 <a class="btn btn-primary" th:href="@{/clubs/{id}/delete(id=${club.id})}">Delete</a>
                         </div>

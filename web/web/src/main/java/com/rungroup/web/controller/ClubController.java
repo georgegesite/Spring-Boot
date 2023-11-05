@@ -30,6 +30,13 @@ public class ClubController {
         return "clubs-list";
     }
 
+    @GetMapping("/clubs/{id}")
+    public String clubDetail(@PathVariable("id") Long id, Model model) {
+        Club club = clubService.findClub(id); // get object from databse
+        model.addAttribute("club", club); // send data to HTML
+        return "club-details";
+    }
+
     @GetMapping("/clubs/new")
     public String createClubFrom(Model model) {
         Club club = new Club();
