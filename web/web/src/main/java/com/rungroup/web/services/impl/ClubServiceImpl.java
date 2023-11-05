@@ -27,16 +27,19 @@ public class ClubServiceImpl implements ClubService {
     public Club saveClub(Club club) {
         return clubRepository.save(club);
     }
-    
+
     @Override
-    public Club findClub(Long id)
-    {
-    	return clubRepository.findById(id).get();
+    public Club findClub(Long id) {
+        return clubRepository.findById(id).get();
     }
-    
+
     @Override
-    public Club updateClub(Club club)
-    {   
-    	return clubRepository.save(club);
+    public Club updateClub(Club club) {
+        return clubRepository.save(club);
+    }
+
+    @Override
+    public void deleteClub(Long id) {
+        clubRepository.deleteById(id);
     }
 }

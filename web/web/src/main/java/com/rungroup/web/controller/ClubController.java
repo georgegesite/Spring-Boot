@@ -45,10 +45,16 @@ public class ClubController {
         return "club-edit";
     }
 
-    @PostMapping("clubs/{id}/edit")
+    @PostMapping("/clubs/{id}/edit")
     public String updateClub(@PathVariable("id") Long id, @ModelAttribute("club") Club club) {
         club.setId(id);
         clubService.updateClub(club);
+        return "redirect:/clubs";
+    }
+
+    @GetMapping("/clubs/{id}/delete")
+    public String deleteClub(@PathVariable("id") Long id) {
+        clubService.deleteClub(id);
         return "redirect:/clubs";
     }
 
