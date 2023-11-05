@@ -21,14 +21,17 @@ layout:decorate="~{layout}" >
                 <div class="col-md-6">
                   <label for="inputEmail4" class="form-label">Title</label>
                   <input type="text" class="form-control" id="title" placeholder="Title" name="title" th:field="*{title}" >
+                  <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}" ></p>
                 </div>
                 <div class="col-md-6">
                   <label for="inputPassword4" class="form-label">PhotoUrl</label>
                   <input type="text" class="form-control" id="photoUrl" placeholder="PhotoUrl" name="photoUrl" th:field="*{photoUrl}" >
+                  <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}" ></p>
                 </div>
                 <div class="col-12">
                   <label for="inputAddress" class="form-label">Content</label>
                   <input type="text" class="form-control" id="content" placeholder="Content"name="content" th:field="*{content}" >
+                  <p th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}" ></p>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary">Update</button>

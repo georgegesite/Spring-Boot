@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+
 import com.rungroup.web.models.Club;
 
 import com.rungroup.web.services.ClubService;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class ClubController {
@@ -34,7 +38,11 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/new")
-    public String saveClub(@ModelAttribute("club") Club club) {
+    public String saveClub(@Valid @ModelAttribute("club") Club club, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("club", club);
+            return "clubs-create";
+        }
         clubService.saveClub(club);
         return "redirect:/clubs";
     }
@@ -46,7 +54,11 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/{id}/edit")
-    public String updateClub(@PathVariable("id") Long id, @ModelAttribute("club") Club club) {
+    public String updateClub(@PathVariable("id") Long id, @Valid @ModelAttribute("club") Club club,
+            BindingResult result) {
+        if (result.hasErrors()) { // Validation Error
+            return "club-edit";
+        }
         club.setId(id);
         clubService.updateClub(club);
         return "redirect:/clubs";
