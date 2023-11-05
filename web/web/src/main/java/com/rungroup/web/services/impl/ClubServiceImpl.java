@@ -1,6 +1,7 @@
 package com.rungroup.web.services.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -41,5 +42,23 @@ public class ClubServiceImpl implements ClubService {
     @Override
     public void deleteClub(Long id) {
         clubRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Club> searchClubs(String query){
+        List<Club> clubs = clubRepository.searcClubs(query);
+        return clubs.stream().map(club ->  ).collect(Collectors.toList());
+    }
+
+    private Club mapToClub(Club club) {
+        Club club = Club.builder()
+                .id(club.getId())
+                .title(club.getTitle())
+                .photoUrl(club.getPhotoUrl())
+                .content(club.getContent())
+                .createdOn(club.getCreatedOn())
+                .updatedOn(club.getUpdatedOn())
+                .build();
+        return club;
     }
 }
