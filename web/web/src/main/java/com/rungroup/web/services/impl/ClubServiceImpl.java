@@ -1,7 +1,6 @@
 package com.rungroup.web.services.impl;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -27,5 +26,17 @@ public class ClubServiceImpl implements ClubService {
     @Override
     public Club saveClub(Club club) {
         return clubRepository.save(club);
+    }
+    
+    @Override
+    public Club findClub(Long id)
+    {
+    	return clubRepository.findById(id).get();
+    }
+    
+    @Override
+    public Club updateClub(Club club)
+    {   
+    	return clubRepository.save(club);
     }
 }

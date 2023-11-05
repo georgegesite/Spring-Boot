@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="https://thymeleaf.org"
+xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout}" >
+<head>
+    <title>
+        Club Edit
+    </title>
+</head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Page Content-->
+            <section layout:fragment="body" class="py-5">
+             <!-- Insert Form Here    -->
+             <div class="container" >
+          
+             <form class="row g-3" role="form" method="post" th:action ="@{/clubs/{id}/edit(id=${club.id})}" th:object="${club}" >
+				    <input type="hidden" th:field="*{id}">  
+            <input type="hidden" th:field="*{createdOn}">  
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Title" name="title" th:field="*{title}" >
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">PhotoUrl</label>
+                  <input type="text" class="form-control" id="photoUrl" placeholder="PhotoUrl" name="photoUrl" th:field="*{photoUrl}" >
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Content</label>
+                  <input type="text" class="form-control" id="content" placeholder="Content"name="content" th:field="*{content}" >
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+            </section>
+        </main>
+ 
+    </body>
+</html>

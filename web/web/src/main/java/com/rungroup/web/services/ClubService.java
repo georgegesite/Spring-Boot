@@ -7,4 +7,8 @@ public interface ClubService {
     List<Club> findAllClubs();
 
     Club saveClub(Club club);
+    
+    Club findClub(Long id);
+    
+    Club updateClub(Club club);
 }
