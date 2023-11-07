@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.rungroup.web.dto.ClubDto;
 import com.rungroup.web.models.Club;
 import com.rungroup.web.repository.ClubRepository;
 import com.rungroup.web.services.ClubService;
@@ -50,8 +51,8 @@ public class ClubServiceImpl implements ClubService {
         return clubs.stream().map(club ->  ).collect(Collectors.toList());
     }
 
-    private Club mapToClub(Club club) {
-        Club club = Club.builder()
+    private ClubDto mapToClub(Club club) {
+        ClubDto clubDto = Club.builder()
                 .id(club.getId())
                 .title(club.getTitle())
                 .photoUrl(club.getPhotoUrl())
@@ -59,6 +60,6 @@ public class ClubServiceImpl implements ClubService {
                 .createdOn(club.getCreatedOn())
                 .updatedOn(club.getUpdatedOn())
                 .build();
-        return club;
+        return clubDto;
     }
 }
