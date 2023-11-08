@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.List;
-
+//comment
 @Data
 @Builder
 public class ClubDto {
