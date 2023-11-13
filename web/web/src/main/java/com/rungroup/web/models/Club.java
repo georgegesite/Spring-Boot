@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "clubs")
+//comment
 
 public class Club {
     @Id
