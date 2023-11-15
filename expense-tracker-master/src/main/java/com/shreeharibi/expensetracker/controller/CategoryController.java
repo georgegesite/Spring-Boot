@@ -20,7 +20,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 public class CategoryController {
-
+    // QUESTIONS
     private final CategoryService categoryService;
 
     @GetMapping()
@@ -32,13 +32,11 @@ public class CategoryController {
             if ((id == null) && (name == null)) {
                 log.info("Getting list of all categories...");
                 result = categoryService.getCategories();
-            }
-            else if (name == null) {
-                log.info("Getting category by id "+ id +"...");
+            } else if (name == null) {
+                log.info("Getting category by id " + id + "...");
                 result.add(categoryService.getCategoryById(id));
-            }
-            else {
-                log.info("Getting category by name "+ name +"...");
+            } else {
+                log.info("Getting category by name " + name + "...");
                 result.add(categoryService.getCategoryByName(name));
             }
         } catch (CategoryNotFoundException e) {
@@ -52,7 +50,7 @@ public class CategoryController {
     @PostMapping
     public void addNewCategory(@RequestBody Category category) {
         try {
-            log.info("Adding new category "+ category +"...");
+            log.info("Adding new category " + category + "...");
             categoryService.addNewCategory(category);
         } catch (CategoryExistsException e) {
             log.error("Failed to add new category...");
@@ -67,7 +65,7 @@ public class CategoryController {
         boolean status = false;
         for (String category : categories) {
             try {
-                log.info("Deleting category "+ category +"...");
+                log.info("Deleting category " + category + "...");
                 categoryService.deleteCategoryByName(category);
             } catch (CategoryNotFoundException e) {
                 status = true;
@@ -82,10 +80,9 @@ public class CategoryController {
 
     @DeleteMapping(path = "{categoryId}")
     public void deleteCategoryById(
-            @PathVariable("categoryId") Long categoryId
-    ) {
+            @PathVariable("categoryId") Long categoryId) {
         try {
-            log.info("Deleting category id "+ categoryId +"...");
+            log.info("Deleting category id " + categoryId + "...");
             categoryService.deleteCategoryById(categoryId);
         } catch (CategoryNotFoundException e) {
             log.error("Failed to delete category...");
@@ -97,10 +94,9 @@ public class CategoryController {
     @PutMapping(path = "{oldCategoryName}")
     public ResponseEntity<Category> updateCategory(
             @PathVariable("oldCategoryName") String oldCategoryName,
-            @RequestBody Category category
-    ) {
+            @RequestBody Category category) {
         try {
-            log.info("update category name "+ oldCategoryName +"...");
+            log.info("update category name " + oldCategoryName + "...");
             return categoryService.updateCategory(oldCategoryName, category);
         } catch (CategoryNotFoundException e) {
             log.error("Failed to update category...");
