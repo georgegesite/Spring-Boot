@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Page Content-->
+        <section layout:fragment="body" class="py-5">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="fw-bolder">Todo List</h1>
+                    <p class="lead fw-normal text-muted mb-0">Manage your tasks efficiently</p>
+                    <a class="btn btn-primary" th:href="@{/addTodo}">Add Todo</a>
+                </div>
+                <div class="row gx-5">
+                    <div th:each="todo : ${todos}" class="col-lg-6 mb-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title" th:text="${todo.title}"></h2>
+                                <p class="card-text" th:text="${todo.content}"></p>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-primary" th:href="@{/todos/{id}(id=${todo.id})}">Details</a>
+                                <a class="btn btn-warning" th:href="@{/todos/{id}/edit(id=${todo.id})}">Edit</a>
+                                <a class="btn btn-danger" th:href="@{/todos/{id}/delete(id=${todo.id})}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
