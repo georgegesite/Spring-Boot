@@ -18,10 +18,16 @@ public class TodoServices {
         this.todoRepository = todoRepository;
     }
 
+    // shows list of todos
     public List<TodoDtoEntity> findAllClubs() {
         List<TodoEntity> todos = todoRepository.findAll();
         return todos.stream().map((todo) -> mapToTodoDto(todo)).collect(Collectors.toList());
 
+    }
+
+    // save a todo
+    public TodoEntity saveTodo(TodoEntity Todo) {
+        return todoRepository.save(Todo);
     }
 
     private TodoDtoEntity mapToTodoDto(TodoEntity todo) {
