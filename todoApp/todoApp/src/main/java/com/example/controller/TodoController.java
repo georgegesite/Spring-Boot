@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.dto.TodoDtoEntity;
@@ -40,6 +41,12 @@ public class TodoController {
     @PostMapping("/todos/new")
     public String saveClub(@ModelAttribute("todo") TodoEntity todoEntity) {
         todoService.saveTodo(todoEntity);
+        return "redirect:/todos";
+    }
+
+    @GetMapping("/todos/delete/{id}")
+    public String deleteTodo(@PathVariable("id") Long id) {
+        todoService.deleteTodos(id);
         return "redirect:/todos";
     }
 
