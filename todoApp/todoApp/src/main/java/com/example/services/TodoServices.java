@@ -19,7 +19,7 @@ public class TodoServices {
     }
 
     // shows list of todos
-    public List<TodoDtoEntity> findAllClubs() {
+    public List<TodoDtoEntity> findAllTodos() {
         List<TodoEntity> todos = todoRepository.findAll();
         return todos.stream().map((todo) -> mapToTodoDto(todo)).collect(Collectors.toList());
 

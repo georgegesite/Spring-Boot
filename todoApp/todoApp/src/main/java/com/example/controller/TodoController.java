@@ -24,22 +24,17 @@ public class TodoController {
 
     // Show list of todos and can create todo here
     @GetMapping("/todos")
-    public String listClubs(Model model) {
-        List<TodoDtoEntity> todos = todoService.findAllClubs();
+    public String listTodos(Model model) {
+        List<TodoDtoEntity> todos = todoService.findAllTodos();
         model.addAttribute("todos", todos);
+
+        // Add an empty TodoEntity for the create form
+        model.addAttribute("todo", new TodoEntity());
         return "todos-list";
     }
 
-    @GetMapping("/todos/new")
-    public String createTodoForm(Model model) {
-        TodoEntity todo = new TodoEntity();
-        model.addAttribute("todo", todo);
-        return "todo-create";
-
-    }
-
     @PostMapping("/todos/new")
-    public String saveClub(@ModelAttribute("todo") TodoEntity todoEntity) {
+    public String saveTodo(@ModelAttribute("todo") TodoEntity todoEntity) {
         todoService.saveTodo(todoEntity);
         return "redirect:/todos";
     }
