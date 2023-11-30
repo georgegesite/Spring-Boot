@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha384-rzO3uU4HR61G7LkEhLY7Ppieh7LlEQBMEHxYBZBMTFUx3S+kWMIbJiSRE0V21JwW" crossorigin="anonymous">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        integrity="sha384-rzO3uU4HR61G7LkEhLY7Ppieh7LlEQBMEHxYBZBMTFUx3S+kWMIbJiSRE0V21JwW" crossorigin="anonymous">       
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -46,10 +45,10 @@
                             </div>
                             <div class="card-footer">
                                 <a class="btn btn-warning" th:href="@{/todos/{id}/edit(id=${todo.id})}">
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="bi bi-pencil-square"></i>
                                 </a>
                                 <a class="btn btn-danger" th:href="@{/todos/delete/{id}(id=${todo.id})}">
-                                    <i class="fa-solid fa-trash-can-arrow-up"></i>
+                                    <i class="bi bi-trash"></i>
                                 </a>
                             </div>
                         </div>
