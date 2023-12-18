@@ -10,7 +10,7 @@ public class ExpenseController {
     @GetMapping("/expenses")
     public String displayExpenses(Model model) {
 
-        model.addAttribute("welcome", "Hello and welcome");
+        model.addAttribute("pageTitle", "ExpenseTracker");
 
         return "Home.html";
     }

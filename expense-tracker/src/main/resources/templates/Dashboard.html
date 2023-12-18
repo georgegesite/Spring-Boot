@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <th:block th:fragment="dashboard">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="container text-center">
+            <h3>Todays expenses</h3>
+            <!-- use th:each in div below -->
+            <ul style="list-style: none">
+              <li>
+                <span>Category</span>
+                <span>Expense</span>
+                <span>Amount</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="container d-flex align-items-center justify-content-center"
+          >
+            <div class="text-center p-4">
+              <h1 class="display-4">Coming Soon!</h1>
+              <p class="lead">
+                We're working on something awesome. Stay tuned!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="container-fluid d-flex align-items-center justify-content-center"
+          >
+            <div class="text-center p-4">
+              <h1 class="display-4">Coming Soon!</h1>
+              <p class="lead">
+                We're working on something awesome. Stay tuned!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </th:block>
+  </body>
+</html>
