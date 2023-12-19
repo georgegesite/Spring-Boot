@@ -12,11 +12,13 @@
             <h3>Todays expenses</h3>
             <!-- use th:each in div below -->
             <ul style="list-style: none">
-              <li>
-                <span>Category</span>
-                <span>Expense</span>
-                <span>Amount</span>
-              </li>
+              <div th:each="expense : ${expenses}">
+                <li>
+                  <span th:text="${expense.category}"></span>
+                  <span th:text="${expense.expense}"></span>
+                  <span th:text="${expense.amount}"></span>
+                </li>
+              </div>
             </ul>
           </div>
         </div>
