@@ -1,5 +1,9 @@
 package com.ggesite.expense.tracker.entity;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotEmpty;
 
 @Data
 @NoArgsConstructor
@@ -20,8 +25,12 @@ public class ExpenseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotEmpty
     private String category;
-    private Long amount;
+    @NotEmpty
     private String expense;
-    private String date;
+
+    private Long amount;
+    @CreationTimestamp
+    private LocalDateTime createdOn;
 }

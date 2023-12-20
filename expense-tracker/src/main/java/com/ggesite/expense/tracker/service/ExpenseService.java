@@ -23,6 +23,11 @@ public class ExpenseService {
 
     }
 
+    // save expense
+    public ExpenseEntity saveExpense(ExpenseEntity expense) {
+        return expenseRepository.save(expense);
+    }
+
     // try and understand this function
     private ExpenseDto mapToExpenseDto(ExpenseEntity expense) {
         ExpenseDto expenseDto = ExpenseDto.builder()

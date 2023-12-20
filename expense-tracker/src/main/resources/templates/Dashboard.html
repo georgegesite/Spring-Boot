@@ -10,9 +10,8 @@
         <div class="col-md-4">
           <div class="container text-center">
             <h3>Todays expenses</h3>
-            <!-- use th:each in div below -->
             <ul style="list-style: none">
-              <div th:each="expense : ${expenses}">
+              <div th:each="expense : ${expensesData}">
                 <li>
                   <span th:text="${expense.category}"></span>
                   <span th:text="${expense.expense}"></span>
@@ -21,7 +20,53 @@
               </div>
             </ul>
           </div>
+          <div class="container">
+            <form
+              class="row g-3"
+              role="form"
+              method="post"
+              th:action="@{/expenses/add}"
+              th:object="${expenseForm}"
+            >
+              <div class="row">
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="category"
+                    placeholder="Category"
+                    name="category"
+                    th:field="*{category}"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="expense"
+                    placeholder="Expense"
+                    name="expense"
+                    th:field="*{expense}"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="amount"
+                    placeholder="Amount"
+                    name="amount"
+                    th:field="*{amount}"
+                  />
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+
         <div class="col-md-4">
           <div
             class="container d-flex align-items-center justify-content-center"
