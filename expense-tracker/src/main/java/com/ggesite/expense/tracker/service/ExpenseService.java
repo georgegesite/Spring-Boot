@@ -16,12 +16,14 @@ public class ExpenseService {
         this.expenseRepository = expenseRepository;
     }
 
+    // try and understand this function
     public List<ExpenseDto> findAllExpensesToday() {
         List<ExpenseEntity> expenses = expenseRepository.findAll();
         return expenses.stream().map((expense) -> mapToExpenseDto(expense)).collect(Collectors.toList());
 
     }
 
+    // try and understand this function
     private ExpenseDto mapToExpenseDto(ExpenseEntity expense) {
         ExpenseDto expenseDto = ExpenseDto.builder()
                 .id(expense.getId())
