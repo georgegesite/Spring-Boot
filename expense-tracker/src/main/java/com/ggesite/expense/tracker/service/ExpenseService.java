@@ -1,6 +1,7 @@
 package com.ggesite.expense.tracker.service;
 
 import java.util.stream.Collectors;
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.ggesite.expense.tracker.repository.ExpenseRepository;
@@ -42,6 +43,10 @@ public class ExpenseService {
 
     public List<ExpenseEntity> getTodayExpenses() {
         return expenseRepository.findTodayExpenses();
+    }
+
+    public BigDecimal getSumAmountForToday() {
+        return expenseRepository.sumAmountForToday();
     }
 
 }

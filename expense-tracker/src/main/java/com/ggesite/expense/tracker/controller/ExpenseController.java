@@ -1,5 +1,6 @@
 package com.ggesite.expense.tracker.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ggesite.expense.tracker.service.ExpenseService;
-import com.ggesite.expense.tracker.Dto.ExpenseDto;
 import com.ggesite.expense.tracker.entity.ExpenseEntity;
 
 @Controller
@@ -26,6 +26,8 @@ public class ExpenseController {
         model.addAttribute("expensesData", expenses);
         model.addAttribute("pageTitle", "ExpenseTracker");
 
+        BigDecimal totalExpenseToday = expenseService.getSumAmountForToday();
+        model.addAttribute("totalExpense", totalExpenseToday);
         model.addAttribute("expenseForm", new ExpenseEntity());
 
         return "Home.html";
