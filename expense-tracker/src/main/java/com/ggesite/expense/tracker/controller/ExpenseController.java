@@ -22,7 +22,7 @@ public class ExpenseController {
 
     @GetMapping("/expenses")
     public String displayExpenses(Model model) {
-        List<ExpenseDto> expenses = expenseService.findAllExpensesToday();
+        List<ExpenseEntity> expenses = expenseService.getTodayExpenses();
         model.addAttribute("expensesData", expenses);
         model.addAttribute("pageTitle", "ExpenseTracker");
 

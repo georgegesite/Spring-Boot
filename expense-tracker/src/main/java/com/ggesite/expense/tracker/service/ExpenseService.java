@@ -40,4 +40,8 @@ public class ExpenseService {
         return expenseDto;
     }
 
+    public List<ExpenseEntity> getTodayExpenses() {
+        return expenseRepository.findTodayExpenses();
+    }
+
 }
