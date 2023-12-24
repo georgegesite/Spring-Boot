@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ggesite.expense.tracker.service.ExpenseService;
 import com.ggesite.expense.tracker.entity.ExpenseEntity;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ExpenseController {
@@ -37,5 +38,23 @@ public class ExpenseController {
     public String saveTodo(@ModelAttribute("expenseForm") ExpenseEntity expnseEntity) {
         expenseService.saveExpense(expnseEntity);
         return "redirect:/expenses";
+    }
+
+    @PostMapping("/expenses/month")
+    public String getExpenseReport(@RequestParam int month, Model model) {
+
+        List<ExpenseEntity> expenses = expenseService.getTodayExpenses();
+        model.addAttribute("expensesData", expenses);
+        model.addAttribute("pageTitle", "ExpenseTracker");
+
+        BigDecimal totalExpenseToday = expenseService.getSumAmountForToday();
+        model.addAttribute("totalExpense", totalExpenseToday);
+        model.addAttribute("expenseForm", new ExpenseEntity());
+
+        List<Object[]> expensesByCategory = expenseService.getExpensesByCategoryForMonth(month);
+
+        model.addAttribute("expenses", expensesByCategory);
+
+        return "Home.html";
     }
 }

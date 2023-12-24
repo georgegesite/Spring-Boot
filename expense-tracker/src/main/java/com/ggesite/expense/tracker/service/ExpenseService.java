@@ -49,4 +49,8 @@ public class ExpenseService {
         return expenseRepository.sumAmountForToday();
     }
 
+    public List<Object[]> getExpensesByCategoryForMonth(int month) {
+        return expenseRepository.sumAmountPerCategoryPerMonth(month);
+    }
+
 }
