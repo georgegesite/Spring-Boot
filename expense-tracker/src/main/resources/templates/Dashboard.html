@@ -32,14 +32,18 @@
             >
               <div class="row">
                 <div class="col-md-4">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="category"
-                    placeholder="Category"
-                    name="category"
-                    th:field="*{category}"
-                  />
+                  <select id="category" name="category" th:field="*{category}">
+                    <option value="FOOD" selected>FOOD</option>
+                    <option value="MISC">MISC</option>
+                    <option value="INTERNET">INTERNET</option>
+                    <option value="SERVICE">SERVICE</option>
+                    <option value="TRANSPO">TRANSPO</option>
+                    <option value="SHOPPING">SHOPPING</option>
+                    <option value="EDUCATION">EDUCATION</option>
+                    <option value="BILLS">BILLS</option>
+                    <option value="CC">CC</option>
+                    <option value="HEALTH">HEALTH</option>
+                  </select>
                 </div>
                 <div class="col-md-4">
                   <input

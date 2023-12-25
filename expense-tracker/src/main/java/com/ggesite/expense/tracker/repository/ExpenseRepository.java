@@ -19,4 +19,7 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Long> {
     @Query("SELECT e.category, SUM(e.amount) FROM ExpenseEntity e WHERE MONTH(e.createdOn) = :month GROUP BY e.category")
     List<Object[]> sumAmountPerCategoryPerMonth(@Param("month") int month);
 
+    @Query("SELECT e.category, SUM(e.amount) FROM ExpenseEntity e WHERE MONTH(e.createdOn) = MONTH(CURRENT_DATE) GROUP BY e.category")
+    List<Object[]> sumAmountPerCategoryForCurrentMonth();
+
 }

@@ -31,6 +31,9 @@ public class ExpenseController {
         model.addAttribute("totalExpense", totalExpenseToday);
         model.addAttribute("expenseForm", new ExpenseEntity());
 
+        List<Object[]> thisMonthExpenses = expenseService.getExpensesByCategoryForCurrentMonth();
+        model.addAttribute("expenses", thisMonthExpenses);
+
         return "Home.html";
     }
 
