@@ -1,3 +1,14 @@
+/**
+ * ExpenseRepository interface defines database access methods for ExpenseEntity.
+ *
+ * Provides standard CRUD operations via JpaRepository extension.
+ *
+ * Also defines some custom queries for:
+ * - Finding expenses for today
+ * - Summing expenses for today 
+ * - Summing expenses per category per month
+ * - Summing expenses per category for current month
+ */
 package com.ggesite.expense.tracker.repository;
 
 import java.math.BigDecimal;
