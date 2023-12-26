@@ -15,6 +15,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.NotEmpty;
 
+/**
+ * Imports the Table annotation from the Jakarta Persistence API.
+ * This allows the entity class to be mapped to a database table.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
