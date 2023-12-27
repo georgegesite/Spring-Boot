@@ -10,3 +10,5 @@ The following was discovered as part of building this project:
 - categorize monthly expense on category
 - select menu for category ->replace text input
 - get the sum total per category per month
+- display sum total per category of current month
+- get the total sum per month
