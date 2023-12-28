@@ -1,38 +1,32 @@
-# Read Me First
+# Expense Tracker
 
-The following was discovered as part of building this project:
+Expense Tracker is a web application to track personal expenses.
 
-- The original package name 'com.ggesite.expense tracker' is invalid and this project uses 'com.ggesite.expense.tracker' instead.
+## Features
 
-#Features Implemented
+- Record daily expenses
+- Categorize expenses (food, rent, utilities etc.)
+- View expense summaries by category or month
+- Get total spending for current month
 
-- add total daily expense
-- categorize monthly expense on category
-- select menu for category ->replace text input
-- get the sum total per category per month
-- display sum total per category of current month
-- get the total sum per month
+## Running the Application
 
-#Upcoming Features
+- Clone the repository
+- Import the project in your IDE as a Maven project
+- Run the ExpenseTrackerApplication class to start the web server
+- Access the application at http://localhost:8080
 
-- Recurring expenses - Allow users to mark expenses as recurring (weekly, monthly, etc) so they do not have to manually enter them each time.
+## Usage
 
-- Budgeting - Allow users to set budgets for categories or time periods and track how well they are sticking to the budget. Provide notifications when approaching or exceeding budget.
+- Enter daily expenses on the home page
+- Select expense category from the dropdown
+- Expenses are saved when submitted
+- Use the sidebar to filter expenses by month or category
+- Charts summarize spending by category and month
 
-- Charts/graphs - Visualize expenses over time or by category in interactive charts. Allows users to easily see spending patterns.
+## Built With
 
-- Export reports - Export filtered expense data to CSV or PDF to share or analyze outside the app.
-
-- Receipt OCR - Use OCR to extract expense info from scanned or photographed receipts. Automatically populate expense entries.
-
-- Cloud sync - Sync expenses across devices by storing data in the cloud. Allow users to access expense data from multiple devices.
-
-- Payments - Integrate with payment systems to auto-capture transaction data. Avoid manual entry of expenses.
-
-- Groups/sharing - Allow sharing expenses between groups or couples. View group spending.
-
-- Notifications - Get notified when exceeding budgets or spending thresholds. Set custom alerts.
-
-- Plaid integration - Connect bank accounts via Plaid to automatically pull in transactions.
-
-- Analytics - Provide insights like spending by time period, frequent merchants, expense trends, etc.
+- Java
+- Spring Boot
+- Thymeleaf
+- MySQL
