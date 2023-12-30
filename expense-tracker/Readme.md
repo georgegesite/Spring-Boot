@@ -8,6 +8,7 @@ Expense Tracker is a web application to track personal expenses.
 - Categorize expenses (food, rent, utilities etc.)
 - View expense summaries by category or month
 - Get total spending for current month
+- more features coming soon..
 
 ## Running the Application
 
