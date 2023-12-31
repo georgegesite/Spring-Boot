@@ -26,6 +26,11 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "Login.html";
+    }
+
     @RequestMapping(value = "/expenses", method = { RequestMethod.GET, RequestMethod.POST })
     public String displayExpenses(Model model, @RequestParam(required = false) Integer month) {
         List<ExpenseEntity> expenses = expenseService.getTodayExpenses();
