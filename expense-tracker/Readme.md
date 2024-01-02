@@ -9,6 +9,10 @@ Expense Tracker is a web application to track personal expenses.
 - View expense summaries by category or month
 - Get total spending for current month
 
+## Upcoming Features
+
+- Spring Security for login and authorization
+
 ## Running the Application
 
 - Clone the repository
