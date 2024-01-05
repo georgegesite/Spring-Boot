@@ -13,6 +13,7 @@ Expense Tracker is a web application to track personal expenses.
 
 - Spring Security for login and authorization
 - Updating the UI
+- Graph for Expenses and Income
 
 ## Running the Application
 
